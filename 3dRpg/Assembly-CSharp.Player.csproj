@@ -311,6 +311,9 @@
     <Reference Include="Unity.ProGrids.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.ProGrids.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+      <HintPath>Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
+    </Reference>
     <Reference Include="netstandard">
       <HintPath>D:\unity\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>
     </Reference>
@@ -713,6 +716,10 @@
     <ProjectReference Include="Unity.ProGrids.csproj">
       <Project>{F74A04AA-1B5E-D5F7-EACA-0541404E219F}</Project>
       <Name>Unity.ProGrids</Name>
+    </ProjectReference>
+    <ProjectReference Include="Cinemachine.csproj">
+      <Project>{BD80A7D2-AD00-A129-9079-ED6835789C1D}</Project>
+      <Name>Cinemachine</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

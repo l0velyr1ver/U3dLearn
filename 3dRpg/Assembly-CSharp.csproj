@@ -759,6 +759,14 @@
       <Project>{F74A04AA-1B5E-D5F7-EACA-0541404E219F}</Project>
       <Name>Unity.ProGrids</Name>
     </ProjectReference>
+    <ProjectReference Include="com.unity.cinemachine.editor.csproj">
+      <Project>{023A61B5-04BC-452C-8838-794900DD46E9}</Project>
+      <Name>com.unity.cinemachine.editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Cinemachine.csproj">
+      <Project>{BD80A7D2-AD00-A129-9079-ED6835789C1D}</Project>
+      <Name>Cinemachine</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
