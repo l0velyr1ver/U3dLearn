@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -12,7 +12,7 @@ public class MouseManager : MonoBehaviour
     public static MouseManager Instance;
     public Texture2D point, doorway, attack, target, arrow;
     RaycastHit hitInfo;
-    //public EventVector3 OnMouseClicked;//ÕâÀï×¢ÊÍµô
+    //public EventVector3 OnMouseClicked;//è¿™é‡Œæ³¨é‡ŠæŽ‰æ‹–æ‹½
 
     public event Action<Vector3> OnMouseClicked;
 
