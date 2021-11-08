@@ -1,0 +1,4 @@
+repository "3dRpg@ssl://wechat_os_qy0xft3moybuh5k6bseym5cx0@sh03-plasticscm.unity.cn:8787"
+  path "/"
+    smartbranch "/main/1138822516" 
+     
