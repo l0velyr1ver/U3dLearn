@@ -3,7 +3,7 @@ Unity generated
 ===============
 Temp/
 Library/
-3dRpg/Logs/
+Logs/
 
 =====================================
 Visual Studio / MonoDevelop generated
@@ -31,6 +31,3 @@ OS generated
 ehthumbs.db
 Thumbs.db
 *.log
-*.log
-*.log
-3dRpg/Logs/shadercompiler-UnityShaderCompiler.exe10.log
