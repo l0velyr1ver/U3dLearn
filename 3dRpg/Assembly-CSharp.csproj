@@ -56,7 +56,8 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\MouseManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\MouseManager.cs" />
+    <Compile Include="Assets\Scripts\Characters\PlayerController.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\AssetPack\BOXOPHOBIC\Skybox Cubemap Extended\Core\Shaders\Skybox Cubemap Extended.shader" />
