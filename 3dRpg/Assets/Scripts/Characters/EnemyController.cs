@@ -11,18 +11,37 @@ public class EnemyController : MonoBehaviour
 {
     private EnemyStates enemyStates;
     private NavMeshAgent agent;
+    private Animator anim;
 
+    public bool isGuard;
+    private float speed;
     [Header("Basic Settings")]
     public float sightRadius;
+    private GameObject attackTarget;
+
+    //动画
+    bool isWalk;
+    bool isChase;
+    bool isFollow;
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        anim = GetComponent<Animator>();
+        speed = agent.speed;
     }
 
     private void Update()
     {
         SwitchStates();
+        SwitchAnimation();
+    }
+
+    void SwitchAnimation()
+    {
+        anim.SetBool("Walk", isWalk);
+        anim.SetBool("Chase", isChase);
+        anim.SetBool("Follow", isFollow);
     }
 
     void SwitchStates()
@@ -42,7 +61,21 @@ public class EnemyController : MonoBehaviour
             case EnemyStates.PATROL:
                 break;
             case EnemyStates.CHASE:
+                agent.speed = speed;
+                isWalk = false;
+                isChase = true;
+            
+                if (!FoundPlayer())
+                {
+                    agent.destination = transform.position;
+                    isFollow = false;  
+                }
+                else
+                {
 
+                    isFollow = true;
+                    agent.destination = attackTarget.transform.position;
+                }
 
 
                 break;
@@ -58,10 +91,11 @@ public class EnemyController : MonoBehaviour
         {
             if (target.CompareTag("Player"))
             {
+                attackTarget = target.gameObject;
                 return true;
             }
         }
-
+        attackTarget = null;
         return false;
     }
 
