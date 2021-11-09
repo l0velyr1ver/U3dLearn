@@ -15,6 +15,7 @@ public class MouseManager : MonoBehaviour
     //public EventVector3 OnMouseClicked;//这里注释掉拖拽
 
     public event Action<Vector3> OnMouseClicked;
+    public event Action<GameObject> onEnemyClicked;
 
     private void Awake()
     {
@@ -56,6 +57,12 @@ public class MouseManager : MonoBehaviour
             {
                 OnMouseClicked?.Invoke(hitInfo.point);
             }
+
+            if (hitInfo.collider.gameObject.CompareTag("Enemy"))
+            {
+                onEnemyClicked?.Invoke(hitInfo.collider.gameObject);
+            }
+
         }
     }
 
