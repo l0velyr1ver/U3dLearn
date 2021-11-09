@@ -39,10 +39,10 @@ AnimatorStateMachine:
     m_Position: {x: 441.98428, y: 172.0476, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 580525011050875313}
-    m_Position: {x: 450, y: 50, z: 0}
+    m_Position: {x: 440, y: 50, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1979311862181744986}
-    m_Position: {x: 450, y: -60, z: 0}
+    m_Position: {x: 440, y: -60, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -169,19 +169,19 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Chase
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Follow
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -203,7 +203,7 @@ AnimatorController:
     m_Behaviours: []
     m_BlendingMode: 0
     m_SyncedLayerIndex: -1
-    m_DefaultWeight: 0
+    m_DefaultWeight: 1
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
@@ -276,7 +276,7 @@ AnimatorStateMachine:
     m_Position: {x: 430, y: 200, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4274358263380674681}
-    m_Position: {x: 420, y: 100, z: 0}
+    m_Position: {x: 430, y: 100, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
