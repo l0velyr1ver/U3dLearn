@@ -13,11 +13,19 @@ public class EnemyController : MonoBehaviour
     private NavMeshAgent agent;
     private Animator anim;
 
-    public bool isGuard;
-    private float speed;
     [Header("Basic Settings")]
     public float sightRadius;
     private GameObject attackTarget;
+    public bool isGuard;
+    private float speed;
+    public float lookAtTime;
+    private float remainLookAtTime;
+
+    [Header("Patrol State")]
+    public float patrolRange;
+    private Vector3 wayPoint;
+
+    private Vector3 guardPos;
 
     //动画
     bool isWalk;
@@ -29,6 +37,21 @@ public class EnemyController : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         speed = agent.speed;
+        guardPos = transform.position;
+        remainLookAtTime = lookAtTime;
+    }
+
+    private void Start()
+    {
+        if (isGuard)
+        {
+            enemyStates = EnemyStates.GUARD;
+        }
+        else
+        {
+            enemyStates = EnemyStates.PATROL;
+            getNewWayPoint();
+        }
     }
 
     private void Update()
@@ -59,6 +82,27 @@ public class EnemyController : MonoBehaviour
             case EnemyStates.GUARD:
                 break;
             case EnemyStates.PATROL:
+                isChase = false;
+                agent.speed = speed * 0.5f;
+
+                if(Vector3.Distance(wayPoint,transform.position) <= agent.stoppingDistance)
+                {
+                    isWalk = false;
+                    if(remainLookAtTime > 0)
+                    {
+                        remainLookAtTime -= Time.deltaTime;
+                    }
+                    else
+                    {
+                        getNewWayPoint();
+                    }
+                }
+                else
+                {
+                    isWalk = true;
+                    agent.destination = wayPoint;
+                }
+
                 break;
             case EnemyStates.CHASE:
                 agent.speed = speed;
@@ -67,6 +111,20 @@ public class EnemyController : MonoBehaviour
             
                 if (!FoundPlayer())
                 {
+                    if(remainLookAtTime > 0)
+                    {
+                        agent.destination = transform.position;
+                        remainLookAtTime -= Time.deltaTime;
+                    }
+                    else if(isGuard)
+                    {
+                        enemyStates = EnemyStates.GUARD;
+                    }
+                    else
+                    {
+                        enemyStates = EnemyStates.CHASE;
+                    }
+
                     agent.destination = transform.position;
                     isFollow = false;  
                 }
@@ -96,7 +154,34 @@ public class EnemyController : MonoBehaviour
             }
         }
         attackTarget = null;
-        return false;
+        return false; 
     }
+
+
+    void getNewWayPoint()
+    {
+        remainLookAtTime = lookAtTime;
+        float randomX = Random.Range(-patrolRange, patrolRange);
+        float randomZ = Random.Range(-patrolRange, patrolRange);
+        Vector3 randomPoint = new Vector3(randomX + guardPos.x,transform.position.y,randomZ + guardPos.z);
+
+        NavMeshHit hit;
+        //判断是否随机到walkable
+        if(NavMesh.SamplePosition(randomPoint, out hit,patrolRange, 1))
+        {
+            wayPoint = hit.position;
+        }
+        else
+        {
+            wayPoint = transform.position;
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, sightRadius);
+    }
+
 
 }
