@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
     private EnemyStates enemyStates;
     private NavMeshAgent agent;
     private Animator anim;
+    private CharacterStats characterStats;
 
     [Header("Basic Settings")]
     public float sightRadius;
@@ -20,6 +21,8 @@ public class EnemyController : MonoBehaviour
     private float speed;
     public float lookAtTime;
     private float remainLookAtTime;
+
+    private float lastAttackTime;
 
     [Header("Patrol State")]
     public float patrolRange;
@@ -36,6 +39,7 @@ public class EnemyController : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
+        characterStats = GetComponent<CharacterStats>();
         speed = agent.speed;
         guardPos = transform.position;
         remainLookAtTime = lookAtTime;
@@ -58,6 +62,7 @@ public class EnemyController : MonoBehaviour
     {
         SwitchStates();
         SwitchAnimation();
+        lastAttackTime -= Time.deltaTime;
     }
 
     void SwitchAnimation()
@@ -65,6 +70,7 @@ public class EnemyController : MonoBehaviour
         anim.SetBool("Walk", isWalk);
         anim.SetBool("Chase", isChase);
         anim.SetBool("Follow", isFollow);
+        anim.SetBool("Critical", characterStats.isCritical);
     }
 
     void SwitchStates()
@@ -122,7 +128,7 @@ public class EnemyController : MonoBehaviour
                     }
                     else
                     {
-                        enemyStates = EnemyStates.CHASE;
+                        enemyStates = EnemyStates.PATROL;
                     }
 
                     agent.destination = transform.position;
@@ -130,15 +136,66 @@ public class EnemyController : MonoBehaviour
                 }
                 else
                 {
-
+                    agent.isStopped = false;
                     isFollow = true;
                     agent.destination = attackTarget.transform.position;
                 }
 
+                //判断攻击范围
+                if(TargetInAttackRange() || TargetInSkillRTange())
+                {
+                    isFollow = false;
+                    agent.isStopped = true;
+
+                    if(lastAttackTime < 0)
+                    {
+                        lastAttackTime = characterStats.attackData.collDown;
+
+                        characterStats.isCritical = Random.value < characterStats.attackData.criticalChance;
+                        Attack();
+                    }
+                }
 
                 break;
             case EnemyStates.DEAD:
                 break;
+        }
+    }
+
+    void Attack()
+    {
+        transform.LookAt(attackTarget.transform);
+        if (TargetInAttackRange())
+        {
+            anim.SetTrigger("Attack");
+        }
+        if (TargetInSkillRTange())
+        {
+            anim.SetTrigger("Skill");
+        }
+    }
+
+    bool TargetInAttackRange()
+    {
+        if(attackTarget != null)
+        {
+            return Vector3.Distance(attackTarget.transform.position, transform.position) <= characterStats.attackData.attackRange;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    bool TargetInSkillRTange()
+    {
+        if (attackTarget != null)
+        {
+            return Vector3.Distance(attackTarget.transform.position, transform.position) <= characterStats.attackData.skillRange;
+        }
+        else
+        {
+            return false;
         }
     }
 

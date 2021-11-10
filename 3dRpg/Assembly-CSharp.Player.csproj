@@ -61,6 +61,7 @@
     <Compile Include="Assets\Scripts\Managers\MouseManager.cs" />
     <Compile Include="Assets\Scripts\Character Stats\ScriptableObject\CharacterData_SO.cs" />
     <Compile Include="Assets\Scripts\Character Stats\MonoBehavior\CharacterStats.cs" />
+    <Compile Include="Assets\Scripts\Combat\AttackData_So.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\AssetPack\BOXOPHOBIC\Skybox Cubemap Extended\Core\Shaders\Skybox Cubemap Extended.shader" />
