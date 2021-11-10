@@ -10,17 +10,21 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     private GameObject attackTarget;
     private float lastAttackTime;
+    private CharacterStats characterStats;
+
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
+        characterStats = GetComponent<CharacterStats>();
     }
 
     private void Start()
     {
         MouseManager.Instance.OnMouseClicked += MoveToTarget;
         MouseManager.Instance.onEnemyClicked += EventAttack;
+        characterStats.MaxHealth = 2;
     }
 
   
