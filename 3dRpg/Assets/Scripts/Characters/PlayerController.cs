@@ -51,7 +51,9 @@ public class PlayerController : MonoBehaviour
     {
         if(target != null)
         {
+
             attackTarget = target;
+            characterStats.isCritical = UnityEngine.Random.value < characterStats.attackData.criticalChance;
             StartCoroutine(MoveToAttackTarget());
         }
     }
@@ -71,10 +73,18 @@ public class PlayerController : MonoBehaviour
         //attack
         if(lastAttackTime < 0)
         {
+            anim.SetBool("Critical", characterStats.isCritical);
             anim.SetTrigger("Attack");
             //攻击冷却时间
-            lastAttackTime = 0.5f;
+            lastAttackTime = characterStats.attackData.collDown;
         }
+    }
+
+
+    void Hit()
+    {
+        var targetStats = attackTarget.GetComponent<CharacterStats>();
+        targetStats.TakeDamage(characterStats, targetStats);
     }
 
 }
