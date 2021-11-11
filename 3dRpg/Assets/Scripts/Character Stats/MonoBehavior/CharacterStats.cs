@@ -93,14 +93,18 @@ public class CharacterStats : MonoBehaviour
 
     #endregion
 
-
-
     #region Character Combat
     public void TakeDamage(CharacterStats attacker, CharacterStats defener)
     {
         int damage = Mathf.Max(attacker.CurrentDamage() - defener.CurrentDefence,0);
-       
-        CurrentHealth = Mathf.Max(CurrentHealth - damage, 0);
+
+        defener.CurrentHealth = Mathf.Max(defener.CurrentHealth - damage, 0);
+
+        if (attacker.isCritical)
+        {
+            defener.gameObject.GetComponent<Animator>().SetTrigger("Hit");
+        }
+
     }
 
     private int CurrentDamage()
@@ -109,8 +113,8 @@ public class CharacterStats : MonoBehaviour
         if (isCritical)
         {
             coreDamage *= attackData.criticalMultiplier;
+            Debug.Log("±©»÷" + coreDamage);
         }
-        Debug.Log("±©»÷" + coreDamage);
         return (int)coreDamage;
     }
 
