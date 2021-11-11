@@ -18,7 +18,7 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
 
     [Header("Basic Settings")]
     public float sightRadius;
-    private GameObject attackTarget;
+    protected GameObject attackTarget;
     public bool isGuard;
     private float speed;
     public float lookAtTime;
@@ -207,7 +207,8 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
 
                 break;
             case EnemyStates.DEAD:
-                agent.enabled = false;
+                //agent.enabled = false;
+                agent.radius = 0;
                 coll.enabled = false;
                 Destroy(gameObject, 2f);
                 break;
