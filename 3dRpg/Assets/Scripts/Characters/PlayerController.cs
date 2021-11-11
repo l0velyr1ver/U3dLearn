@@ -49,15 +49,16 @@ public class PlayerController : MonoBehaviour
     public void MoveToTarget(Vector3 target)
     {
         StopAllCoroutines();
+        if (isDead) return;
         agent.isStopped = false;
         agent.destination = target;
     }
 
     private void EventAttack(GameObject target)
     {
-        if(target != null)
+        if (isDead) return;
+        if (target != null)
         {
-
             attackTarget = target;
             characterStats.isCritical = UnityEngine.Random.value < characterStats.attackData.criticalChance;
             StartCoroutine(MoveToAttackTarget());

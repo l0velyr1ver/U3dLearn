@@ -5,11 +5,22 @@ using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
 {
+    public CharacterData_SO templateData;
     public CharacterData_SO characterData;
     public AttackData_SO attackData;
 
     [HideInInspector]
     public bool isCritical;
+
+    private void Awake()
+    {
+        if(templateData != null)
+        {
+            characterData = Instantiate(templateData);
+        }
+    }
+
+
     #region Read form Data_SO
 
     public int MaxHealth
@@ -113,7 +124,6 @@ public class CharacterStats : MonoBehaviour
         if (isCritical)
         {
             coreDamage *= attackData.criticalMultiplier;
-            Debug.Log("±©»÷" + coreDamage);
         }
         return (int)coreDamage;
     }

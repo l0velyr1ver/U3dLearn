@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public enum EnemyStates { GUARD,PATROL,CHASE,DEAD}
 
 [RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(CharacterStats))]
 public class EnemyController : MonoBehaviour, IEndGameObserver
 {
     private EnemyStates enemyStates;
@@ -63,15 +64,17 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
             enemyStates = EnemyStates.PATROL;
             getNewWayPoint();
         }
+        GameManager.Instance.AddObserver(this);
     }
 
     void OnEnable()
     {
-        GameManager.Instance.AddObserver(this);
+        //GameManager.Instance.AddObserver(this);
     }
 
     void OnDisable()
     {
+        if(!GameManager.IsInitialized) return;
         GameManager.Instance.RemoveObserver(this);
     }
 
