@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     {
         MouseManager.Instance.OnMouseClicked += MoveToTarget;
         MouseManager.Instance.onEnemyClicked += EventAttack;
+        GameManager.Instance.RigisterPlayer(characterStats);
     }
 
   
@@ -64,7 +65,7 @@ public class PlayerController : MonoBehaviour
         agent.isStopped = false;
         transform.LookAt(attackTarget.transform);
 
-        //TODO:修改攻击范围
+
         while (Vector3.Distance(attackTarget.transform.position, transform.position) > characterStats.attackData.attackRange){
             agent.destination = attackTarget.transform.position;
             yield return null;

@@ -7,9 +7,8 @@ using System;
 /*[System.Serializable]
 public class EventVector3 : UnityEvent<Vector3> { }*/
 
-public class MouseManager : MonoBehaviour
+public class MouseManager : Singleton<MouseManager>
 {
-    public static MouseManager Instance;
     public Texture2D point, doorway, attack, target, arrow;
     RaycastHit hitInfo;
     //public EventVector3 OnMouseClicked;//这里注释掉拖拽
@@ -17,13 +16,10 @@ public class MouseManager : MonoBehaviour
     public event Action<Vector3> OnMouseClicked;
     public event Action<GameObject> onEnemyClicked;
 
-    private void Awake()
+    protected override void Awake()
     {
-        if(Instance != null)
-        {
-            Destroy(gameObject);
-        }
-        Instance = this;
+        base.Awake();
+        //DontDestroyOnLoad(this);
     }
 
     private void Update()
