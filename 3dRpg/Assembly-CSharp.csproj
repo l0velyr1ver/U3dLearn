@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\Combat\AttackData_SO.cs" />
     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
     <Compile Include="Assets\Scripts\Tools\Singleton.cs" />
+    <Compile Include="Assets\Scripts\Tools\IEndGameObserver.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\AssetPack\BOXOPHOBIC\Skybox Cubemap Extended\Core\Shaders\Skybox Cubemap Extended.shader" />
