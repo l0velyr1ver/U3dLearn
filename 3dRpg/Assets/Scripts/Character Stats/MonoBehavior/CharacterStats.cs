@@ -118,6 +118,13 @@ public class CharacterStats : MonoBehaviour
 
     }
 
+    public void TakeDamage(int damage,CharacterStats defener)
+    {
+        int currentDamge = Mathf.Max(damage - defener.CurrentDefence, 0);
+        CurrentHealth = Mathf.Max(CurrentHealth - currentDamge, 0);
+    }
+
+
     private int CurrentDamage()
     {
         float coreDamage = UnityEngine.Random.Range(attackData.minDamage, attackData.maxDamage);

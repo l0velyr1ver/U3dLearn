@@ -30,7 +30,14 @@ public class Golem : EnemyController
 
     public void ThrowRock()
     {
-        if(attackTarget != null)
+
+
+        if (attackTarget == null)
+        {
+            attackTarget = FindObjectOfType<PlayerController>().gameObject;
+        }
+
+        if (attackTarget != null)
         {
             var rock = Instantiate(rockPrefab, handPos.position, Quaternion.identity);
             rock.GetComponent<Rock>().target = attackTarget;

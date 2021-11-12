@@ -94,8 +94,20 @@ public class PlayerController : MonoBehaviour
 
     void Hit()
     {
-        var targetStats = attackTarget.GetComponent<CharacterStats>();
-        characterStats.TakeDamage(characterStats, targetStats);
+
+        if (attackTarget.CompareTag("Attackable")){
+            if (attackTarget.GetComponent<Rock>() && attackTarget.GetComponent<Rock>().rockStates == Rock.RockStates.HitNothing)
+            {
+                attackTarget.GetComponent<Rock>().rockStates = Rock.RockStates.HitEnemy;
+                attackTarget.GetComponent<Rigidbody>().velocity = Vector3.one;
+                attackTarget.GetComponent<Rigidbody>().AddForce(transform.forward * 20, ForceMode.Impulse);
+            }
+        }
+        else
+        {
+            var targetStats = attackTarget.GetComponent<CharacterStats>();
+            characterStats.TakeDamage(characterStats, targetStats);
+        }
     }
 
 }
