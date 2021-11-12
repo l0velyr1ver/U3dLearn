@@ -399,7 +399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8a5209101ce76547af6799a48ef1437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sightRadius: 7
+  sightRadius: 8
   isGuard: 1
   lookAtTime: 2
   patrolRange: 0

@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\Combat\AttackData_SO.cs" />
     <Compile Include="Assets\Scripts\Tools\ExtensionMethod.cs" />
     <Compile Include="Assets\Scripts\Characters\Enemy\Golem.cs" />
+    <Compile Include="Assets\Scripts\Characters\Enemy\Rock.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\AssetPack\BOXOPHOBIC\Skybox Cubemap Extended\Core\Shaders\Skybox Cubemap Extended.shader" />
