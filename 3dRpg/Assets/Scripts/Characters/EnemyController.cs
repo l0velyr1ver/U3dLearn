@@ -13,7 +13,7 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
     private EnemyStates enemyStates;
     private NavMeshAgent agent;
     private Animator anim;
-    private CharacterStats characterStats;
+    protected CharacterStats characterStats;
     private Collider coll;
 
     [Header("Basic Settings")]
