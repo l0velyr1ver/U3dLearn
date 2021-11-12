@@ -295,7 +295,7 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
 
     void Hit()
     {
-        if(attackTarget != null)
+        if (attackTarget != null && transform.IsFacingTarget(attackTarget.transform))
         {
             var targetStats = attackTarget.GetComponent<CharacterStats>();
             characterStats.TakeDamage(characterStats, targetStats);
