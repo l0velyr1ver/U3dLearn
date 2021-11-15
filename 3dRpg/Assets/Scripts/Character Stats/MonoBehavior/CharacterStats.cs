@@ -119,6 +119,12 @@ public class CharacterStats : MonoBehaviour
         }
 
         defener.UpdateHealthBarOnAttack?.Invoke(defener.CurrentHealth, defener.MaxHealth);
+
+        if(defener.CurrentHealth <= 0)
+        {
+            attacker.characterData.UpdateExp(defener.characterData.killPoint);
+        }
+
     }
 
     public void TakeDamage(int damage,CharacterStats defener)

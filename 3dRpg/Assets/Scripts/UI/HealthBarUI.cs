@@ -67,9 +67,7 @@ public class HealthBarUI : MonoBehaviour
             if (timeLeft <= 0 && !alwaysVisible)
                 UIbar.gameObject.SetActive(false);
             else
-            {
                 timeLeft -= Time.deltaTime;
-            }
         }
     }
 
