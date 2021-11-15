@@ -15,7 +15,7 @@ MonoBehaviour:
   attackRange: 2
   skillRange: 0
   collDown: 0.7
-  minDamage: 4
+  minDamage: 7
   maxDamage: 7
   criticalMultiplier: 2
   criticalChance: 0.2

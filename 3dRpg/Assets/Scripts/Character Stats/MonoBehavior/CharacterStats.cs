@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
 {
+
+    public event Action<int, int> UpdateHealthBarOnAttack;
     public CharacterData_SO templateData;
     public CharacterData_SO characterData;
     public AttackData_SO attackData;
@@ -116,12 +118,14 @@ public class CharacterStats : MonoBehaviour
             defener.gameObject.GetComponent<Animator>().SetTrigger("Hit");
         }
 
+        defener.UpdateHealthBarOnAttack?.Invoke(defener.CurrentHealth, defener.MaxHealth);
     }
 
     public void TakeDamage(int damage,CharacterStats defener)
     {
         int currentDamge = Mathf.Max(damage - defener.CurrentDefence, 0);
         CurrentHealth = Mathf.Max(CurrentHealth - currentDamge, 0);
+        defener.UpdateHealthBarOnAttack?.Invoke(defener.CurrentHealth, defener.MaxHealth);
     }
 
 

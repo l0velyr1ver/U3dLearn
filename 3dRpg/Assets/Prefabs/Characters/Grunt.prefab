@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 452925295505401830}
   - component: {fileID: 452925295505401831}
   - component: {fileID: 452925295505401824}
+  - component: {fileID: 2711428213511390191}
   m_Layer: 0
   m_Name: Grunt
   m_TagString: Enemy
@@ -34,6 +35,7 @@ Transform:
   m_Children:
   - {fileID: 452925297261904286}
   - {fileID: 452925296949122563}
+  - {fileID: 5726350827370128338}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -77.996, z: 0}
@@ -124,6 +126,22 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &2711428213511390191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452925295218182682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25936e6f49efa0146abc63109c4e285d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthUIPrefab: {fileID: 3610488219800874900, guid: 0918852388384824585ba060ff100843, type: 3}
+  barPoint: {fileID: 5726350827370128338}
+  alwaysVisible: 0
+  visibleTime: 0
 --- !u!1 &452925295327549418
 GameObject:
   m_ObjectHideFlags: 0
@@ -942,3 +960,33 @@ SkinnedMeshRenderer:
     m_Center: {x: -36.372345, y: -22.84499, z: 2.0623856}
     m_Extent: {x: 150.89725, y: 129.15016, z: 148.70132}
   m_DirtyAABB: 0
+--- !u!1 &4253447257992360459
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5726350827370128338}
+  m_Layer: 0
+  m_Name: HealthBar Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5726350827370128338
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4253447257992360459}
+  m_LocalRotation: {x: -0, y: 0.62929255, z: -0, w: 0.7771686}
+  m_LocalPosition: {x: -0.058770664, y: 2.5, z: 0.23558706}
+  m_LocalScale: {x: 0.9999999, y: 1, z: 0.9999999}
+  m_Children: []
+  m_Father: {fileID: 452925295218182628}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
