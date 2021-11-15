@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: 7482667652216324306
     second: Square
+  - first:
+      213: 7502894752496598917
+    second: Square_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -36,8 +39,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 1
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -121,10 +124,10 @@ TextureImporter:
       name: Square
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 256
-        height: 256
+        x: 31
+        y: 42
+        width: 184
+        height: 173
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,6 +137,27 @@ TextureImporter:
       bones: []
       spriteID: 2d009a6b596c7d760800000000000000
       internalID: 7482667652216324306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Square_1
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 234
+        width: 33
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58fb3bd7603af1860800000000000000
+      internalID: 7502894752496598917
       vertices: []
       indices: 
       edges: []

@@ -43,7 +43,8 @@ public class HealthBarUI : MonoBehaviour
     {
         if(currentHealth <= 0)
         {
-            Destroy(UIbar.gameObject);
+            if(UIbar!= null && UIbar.gameObject != null)
+                Destroy(UIbar.gameObject);
         }
 
         timeLeft = visibleTime;
