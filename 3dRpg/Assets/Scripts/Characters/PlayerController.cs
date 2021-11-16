@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnEnable()
     {
-      /*  MouseManager.Instance.OnMouseClicked += MoveToTarget;
+     /*   MouseManager.Instance.OnMouseClicked += MoveToTarget;
         MouseManager.Instance.onEnemyClicked += EventAttack;*/
     }
 
