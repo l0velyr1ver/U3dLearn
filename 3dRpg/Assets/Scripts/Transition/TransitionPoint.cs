@@ -16,6 +16,14 @@ public class TransitionPoint : MonoBehaviour
 
     private bool canTrans;
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.E) && canTrans)
+        {
+            SceneController.Instance.TransitionToDestination(this);
+        }  
+    }
+
 
     private void OnTriggerStay(Collider other)
     {
