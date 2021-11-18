@@ -258,6 +258,7 @@ GameObject:
   - component: {fileID: 4225424618361552113}
   - component: {fileID: 4225424618361552114}
   - component: {fileID: 4225424618361552115}
+  - component: {fileID: 7279482802351772077}
   m_Layer: 0
   m_Name: TurtleShell
   m_TagString: Enemy
@@ -278,6 +279,7 @@ Transform:
   m_Children:
   - {fileID: 4229483391020968269}
   - {fileID: 4229988698888330967}
+  - {fileID: 3152750846025555877}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -367,6 +369,22 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &7279482802351772077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4225852313272397889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25936e6f49efa0146abc63109c4e285d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthUIPrefab: {fileID: 3610488219800874900, guid: 0918852388384824585ba060ff100843, type: 3}
+  barPoint: {fileID: 3152750846025555877}
+  alwaysVisible: 0
+  visibleTime: 0
 --- !u!1 &4225858485701934835
 GameObject:
   m_ObjectHideFlags: 0
@@ -1165,3 +1183,33 @@ Transform:
   m_Father: {fileID: 4228147803328574903}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: -0.000002126115, y: -0.0000017895444, z: -137.26357}
+--- !u!1 &5600392929830081357
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3152750846025555877}
+  m_Layer: 0
+  m_Name: HealthBar Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3152750846025555877
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5600392929830081357}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.379, z: -0.08728188}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4229691478139132539}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
