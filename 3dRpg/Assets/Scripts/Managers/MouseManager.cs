@@ -12,7 +12,6 @@ public class MouseManager : Singleton<MouseManager>
     public Texture2D point, doorway, attack, target, arrow;
     RaycastHit hitInfo;
     //public EventVector3 OnMouseClicked;//这里注释掉拖拽
-
     public event Action<Vector3> OnMouseClicked;
     public event Action<GameObject> onEnemyClicked;
 
